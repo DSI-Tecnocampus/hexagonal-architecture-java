@@ -6,11 +6,8 @@ services:
     ports:
       - "27017:27017"
     command: mongod
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=user
-      - MONGO_INITDB_ROOT_PASSWORD=test
     healthcheck:
-      test: "mongostat -n 1 -u user -p test --authenticationDatabase=admin"
+      test: "mongostat -n 1"
       interval: 5s
       timeout: 2s
       retries: 60
